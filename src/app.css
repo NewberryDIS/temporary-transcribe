@@ -1,0 +1,8 @@
+body {
+    --colorTwo: #ccc;
+}
+
+h1 {
+    line-height: 1;
+    text-transform: capitalize;
+}

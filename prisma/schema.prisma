@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Page {
+  id            Int      @id
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  itemid        Int
+  title         String?
+  omekafn       String
+  ogfn          String?
+  transcription String?
+}
+
+model Item {
+  id              Int      @id
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  pagecount       Int
+  title           String
+  description     String?
+  image           String   @default("/newberryn.png")
+  catalogLink     String?
+  percentComplete String   @default("0")
+  public          Boolean  @default(false)
+  featured        Boolean  @default(false)
+}
