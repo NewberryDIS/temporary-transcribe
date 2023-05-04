@@ -1,30 +1,30 @@
-import type { RequestHandler } from "./$types";
+// import { PrismaClient } from '@prisma/client';
+import db from '$lib/database'
+import { json } from "@sveltejs/kit";
 
-//api transcription GET
-export const GET: RequestHandler = async (event) => {
-    const options: ResponseInit = {
-        status: 418,
-        headers: {
-            x: 'gon giv datta'
-        }
-    }
-    return new Response('eekamoo', options)
-}
-
-//api transcription POST
-
-export const POST: RequestHandler = async (event) => {
-    const data = await event.request.formData()
-    const transcr = data.get('transc')
-    // save transcription
-
-    console.log(transcr)
-    return new Response(
-        JSON.stringify({ success: true }),
-        {
-            headers: {
-                'Content-Type': 'application/json'
+export async function POST({ request }) {
+    //   const { data } = request.body;
+    let { transc, itemid, pageid } = await request.json()
+    try {
+        await db.page.update({
+            data: {
+                transcription: transc,
+            },
+            where: {
+                id: pageid
             }
+        });
+        let retval = { message: 'Transcription successfully submitted' }
+        return json(retval, { status: 200 })
+    } catch (error) {
+
+        console.error(error);
+        let retval = {
+            status: 500,
+            body: { message: 'Error submitting value' },
         }
-    )
+        return json(retval)
+
+    }
+
 }

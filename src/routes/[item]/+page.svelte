@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Page } from '@prisma/client';
+	import { ClickableTile } from 'carbon-components-svelte';
 	import { page as htmlpage } from '$app/stores';
 	import Progressbar from '../progressbar.svelte';
 	import { pageTitle } from '../../stores';
@@ -11,55 +12,48 @@
 
 <div class="grid">
 	{#each pages as page, idx}
-		<a href="/{page.itemid}/{page.pageid}">
-			<article>
-				<header>
-					<img
-						src={'https://digital.newberry.org/transcribe/omeka/files/thumbnails/' + page.omekafn}
-						alt=""
-					/>
-				</header>
-				{idx + 1}
-				<footer>
-					<Progressbar val={page.transcription.length > 1} />
-				</footer>
-			</article>
-		</a>
+		<ClickableTile href="/{page.itemid}/{page.id}">
+			<header>
+				<img
+					src={'https://digital.newberry.org/transcribe/omeka/files/square_thumbnails/' +
+						page.omekafn}
+					alt=""
+				/>
+			</header>
+			<section>
+				page {idx + 1}
+			</section>
+			<footer>
+				<Progressbar val={!!page.transcription.length} />
+			</footer>
+		</ClickableTile>
 	{/each}
 </div>
 
 <style>
-	.card {
-		border: 1px solid var(--colorTwo);
-		width: 200px;
-	}
-	.card > * {
-		width: 200px;
-	}
-	.title,
-	.desc,
-	li {
-		font-size: 0.75rem;
-		margin: 8px;
-	}
-	.title {
-		font-weight: bold;
-	}
-	ul {
-		margin: 0;
-		padding: 0 8px;
-	}
-	li {
+	:global(.bx--tile) {
 		padding: 0;
-		list-style-type: none;
 	}
+
 	.grid {
 		display: grid;
 		/* grid-auto-rows: 300px; */
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 5px;
+		gap: 16px;
 	}
-
+	header {
+		height: 200px;
+		overflow: hidden;
+	}
+	section {
+		padding: 8px;
+	}
+	img {
+		position: relative;
+		top: -5%;
+		left: -5%;
+		width: 120%;
+	}
 	.grid-item {
 		display: flex;
 		justify-content: center;

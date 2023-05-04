@@ -19,6 +19,8 @@ model Page {
   omekafn       String
   ogfn          String?
   transcription String?
+  resx          Int?
+  resy          Int?
 }
 
 model Item {

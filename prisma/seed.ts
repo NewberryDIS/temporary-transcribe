@@ -24,13 +24,17 @@ async function main() {
             let pageid = p.pageid
             let omekafn = p.pagefilename
             let transc = p.transcription
+            let resx = p.resx
+            let resy = p.resy
             await db.page.create({
                 data: {
                     // const dootoo = {
                     id: pageid,
                     itemid: itemid,
                     omekafn: omekafn,
-                    transcription: transc
+                    transcription: transc,
+                    resx: resx,
+                    resy: resy
                 }
             })
 

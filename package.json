@@ -34,6 +34,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "^4.13.0"
+		"@prisma/client": "^4.13.0",
+		"carbon-components-svelte": "^0.73.5",
+		"ol": "^7.3.0"
 	}
 }

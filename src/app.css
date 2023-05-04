@@ -1,8 +1,6 @@
 body {
-    --colorTwo: #ccc;
-}
-
-h1 {
-    line-height: 1;
-    text-transform: capitalize;
+    --colorOne: rgb(205,184,209);
+    --colorTwo: rgba(173,43,90,1);
+    --colorThree: #4051A3;
+    --colorFour: #111A2A;
 }

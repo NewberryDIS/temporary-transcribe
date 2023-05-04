@@ -1,44 +1,169 @@
 <script lang="ts">
+	/** @type {import('./$types').PageData} */
+	import { Button, Form, TextArea, ToastNotification } from 'carbon-components-svelte';
 	import { pageTitle } from '../../../stores';
 	import { page as htmlPage } from '$app/stores';
 	export let data;
-	const { item, page } = data;
-	console.log(page);
-
+	import Image from './image.svelte';
+	import { preventDefault } from 'ol/events/Event';
+	// let { item, pages } = data;
+	// $: ({ items, pages } = data);
+	let item = data.item;
+	let pages = data.pages;
+	// console.log(page);
+	let prev = pages[0];
+	let page = pages[1];
+	let next = pages[2];
+	let value = page.transcription.legnth ? page.transcription : '';
+	$: samesies = $htmlPage.params.page == page.id;
+	let toast = [false, '', 0];
 	async function submitTransc(event: Event) {
-		const form = event.target as HTMLFormElement;
-		const data = new FormData(form);
+		event.preventDefault();
 
-		await fetch('/api/transcribe', {
+		const dootoo = { transc: value, itemid: item.id, pageid: page.id };
+		console.log(dootoo);
+		await fetch('/api/submit', {
 			method: 'POST',
-			body: data
-		});
+			body: JSON.stringify(dootoo)
+		})
+			.then((r) => r.json())
+			.then((r) => {
+				toast = [true, r.message, r.status];
+				console.log(r);
+			});
 	}
+
 	$pageTitle = 'Transcribing ' + item.title;
+	// console.log(`https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`);
 </script>
 
+<h1>{page.id} = {$htmlPage.params.page} ? {samesies ? 'yes' : 'no'}</h1>
 <div class="trapper">
-	<img src="https://digital.newberry.org/transcribe/omeka/files/original/{page.omekafn}" alt="" />
+	<div class="imgpper">
+		<Image
+			src="https://digital.newberry.org/transcribe/omeka/files/original/{page.omekafn}"
+			resolution={[page.resx, page.resy]}
+		/>
+		<p class="helper">hold Alt + Shift and Drag to Rotate</p>
+		<div class="buttons">
+			<a
+				href={prev.id}
+				class="buttonifier bx--btn bx--btn-primary {prev ? 'active-button' : 'disabled-button'}"
+				title={prev ? 'Previous page' : "You're on the first page.  No previous page available!"}
+				>Previous</a
+			>
+			{#if next}
+				<a
+					href={next.id}
+					class="buttonifier bx--btn bx--btn-primary next {next
+						? 'active-button'
+						: 'disabled-button'}"
+					title={next ? 'Next page' : "You're on the last page.  No next page available!"}
+				>
+					Next</a
+				>
+			{/if}
+		</div>
+	</div>
 	<div class="transbox">
-		<form on:submit|preventDefault={submitTransc}>
-			<input type="text" name="transc" />
-			<button>Submit</button>
-		</form>
+		<Form on:submit={(e) => submitTransc(e)} class="transform">
+			<TextArea
+				labelText={$pageTitle}
+				placeholder="Type what you see!"
+				bind:value
+				helperText="more descriptive text down here maybe"
+			/>
+			<Button type="submit">Submit</Button>
+		</Form>
+
+		{#if toast[0]}
+			<div class="toaster">
+				<ToastNotification
+					kind={toast[2] === 200 ? 'success' : 'error'}
+					title={toast[2] === 200 ? 'Success' : 'Error'}
+					subtitle={toast[1]}
+					caption={new Date().toLocaleString()}
+				/>
+			</div>
+		{/if}
 	</div>
 </div>
 
 <style>
-	.trapper {
+	.toaster {
+		position: absolute;
+		bottom: 32px;
+		right: 32px;
+	}
+	.buttons {
+		width: 100%;
 		display: flex;
-		height: 80vh;
 		justify-content: center;
 		align-items: center;
 	}
-	img,
-	.transbox {
-		flex: 1;
+
+	.buttonifier {
+		margin: 8px;
+		max-width: none;
+		width: 200px;
+		/* flex: 1; */
 	}
-	img {
+	.buttonifier.next {
+		text-align: right;
+	}
+	.active-button:hover {
+		color: var(--cds-text-04);
+		background-color: var(--cds-hover-primary);
+	}
+	.active-button {
+		color: var(--cds-text-04);
+		background-color: var(--cds-interactive-01);
+	}
+	.disabled-button {
+		background: var(--cds-disabled-02);
+		border-color: var(--cds-disabled-02);
+		cursor: not-allowed;
+		color: var(--cds-disabled-03);
+	}
+	.trapper {
+		display: flex;
+		height: 85vh;
+		justify-content: center;
+		align-items: stretch;
+	}
+	.imgpper,
+	.transbox {
+		margin: 32px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		/* position: relative; */
+	}
+	.transbox {
+		justify-content: center;
+		align-items: stretch;
+	}
+	:global(.transform button) {
+		float: right;
+	}
+	.transform {
+		height: 100%;
+	}
+	:global(.transform > *) {
+		margin: 16px;
+	}
+	:global(.bx--form-item, .bx--text-area__wrapper) {
+		flex: 1;
+		height: 80%;
+	}
+
+	.imgpper {
 		width: 100%;
+	}
+	.helper {
+		color: var(--cds-text-02);
+		font-size: var(--cds-label-01-font-size);
+		text-align: center;
 	}
 </style>
