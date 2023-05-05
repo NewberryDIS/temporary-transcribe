@@ -31,7 +31,6 @@ export const GET: RequestHandler = async (event) => {
             itemid: itemid
         }
     })
-    const pages = [prev.pop(), page, next.pop()]
     // console.log([prev, page, next])
     let item = await db.item.findUnique({
         where: { id: itemid }
@@ -41,7 +40,9 @@ export const GET: RequestHandler = async (event) => {
         'Cache-Control': 'public, max-age=0, s-maxage=60'
     })
     const retVal = {
-        pages: pages,
+        prev: prev ? prev.pop() : {},
+        page: page,
+        next: next ? next.pop() : {},
         item: item
     }
     return json(retVal)

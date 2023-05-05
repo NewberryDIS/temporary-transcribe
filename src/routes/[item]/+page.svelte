@@ -5,8 +5,8 @@
 	import Progressbar from '../progressbar.svelte';
 	import { pageTitle } from '../../stores';
 	export let data;
-	const pages = data.pages;
-	// console.log(data);
+	// console.log('data', data);
+	const { pages } = data;
 	$pageTitle = data.item.title;
 </script>
 
@@ -24,7 +24,7 @@
 				page {idx + 1}
 			</section>
 			<footer>
-				<Progressbar val={!!page.transcription.length} />
+				<Progressbar val={!!page.transcription} />
 			</footer>
 		</ClickableTile>
 	{/each}

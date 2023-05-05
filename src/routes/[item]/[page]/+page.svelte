@@ -6,25 +6,19 @@
 	export let data;
 	import Image from './image.svelte';
 	import { preventDefault } from 'ol/events/Event';
-	// let { item, pages } = data;
-	// $: ({ items, pages } = data);
-	let item = data.item;
-	let pages = data.pages;
-	// console.log(page);
-	let prev = pages[0];
-	let page = pages[1];
-	let next = pages[2];
-	let value = page.transcription.legnth ? page.transcription : '';
+	const { prev, page, next, item } = data;
+	console.log('prev', prev);
+	let value = page.transcription.length ? page.transcription : '';
 	$: samesies = $htmlPage.params.page == page.id;
 	let toast = [false, '', 0];
 	async function submitTransc(event: Event) {
 		event.preventDefault();
 
-		const dootoo = { transc: value, itemid: item.id, pageid: page.id };
-		console.log(dootoo);
+		const transcData = { transc: value, itemid: item.id, pageid: page.id };
+		console.log(transcData);
 		await fetch('/api/submit', {
 			method: 'POST',
-			body: JSON.stringify(dootoo)
+			body: JSON.stringify(transcData)
 		})
 			.then((r) => r.json())
 			.then((r) => {
@@ -34,10 +28,8 @@
 	}
 
 	$pageTitle = 'Transcribing ' + item.title;
-	// console.log(`https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`);
 </script>
 
-<h1>{page.id} = {$htmlPage.params.page} ? {samesies ? 'yes' : 'no'}</h1>
 <div class="trapper">
 	<div class="imgpper">
 		<Image
@@ -47,22 +39,20 @@
 		<p class="helper">hold Alt + Shift and Drag to Rotate</p>
 		<div class="buttons">
 			<a
-				href={prev.id}
+				href={prev ? prev.id : ''}
 				class="buttonifier bx--btn bx--btn-primary {prev ? 'active-button' : 'disabled-button'}"
 				title={prev ? 'Previous page' : "You're on the first page.  No previous page available!"}
 				>Previous</a
 			>
-			{#if next}
-				<a
-					href={next.id}
-					class="buttonifier bx--btn bx--btn-primary next {next
-						? 'active-button'
-						: 'disabled-button'}"
-					title={next ? 'Next page' : "You're on the last page.  No next page available!"}
-				>
-					Next</a
-				>
-			{/if}
+			<a
+				href={next ? next.id : ''}
+				class="buttonifier bx--btn bx--btn-primary next {next
+					? 'active-button'
+					: 'disabled-button'}"
+				title={next ? 'Next page' : "You're on the last page.  No next page available!"}
+			>
+				Next</a
+			>
 		</div>
 	</div>
 	<div class="transbox">

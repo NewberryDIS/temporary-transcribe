@@ -1,38 +1,32 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model Page {
-  id            Int      @id
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  itemid        Int
-  title         String?
-  omekafn       String
-  ogfn          String?
-  transcription String?
-  resx          Int?
-  resy          Int?
-}
-
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model Item {
   id              Int      @id
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  pagecount       Int
-  title           String
+  pagecount       Int?
+  title           String?
   description     String?
-  image           String   @default("/newberryn.png")
+  image           String?
   catalogLink     String?
-  percentComplete String   @default("0")
-  public          Boolean  @default(false)
-  featured        Boolean  @default(false)
+  percentComplete Int?
+  public          Boolean?
+  featured        Boolean?
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Page {
+  id            Int     @id
+  itemid        Int?
+  omekafn       String?
+  resx          Int?
+  resy          Int?
+  transcription String?
 }

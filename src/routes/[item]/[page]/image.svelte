@@ -6,7 +6,8 @@
 	import Static from 'ol/source/ImageStatic.js';
 	import View from 'ol/View.js';
 	import { getCenter } from 'ol/extent.js';
-	export let src, resolution;
+	export let src = '',
+		resolution = 0;
 	// let src = 'https://digital.newberry.org/transcribe/omeka/files/original/b5e06514262c595774ed8412b9b8e43e.jpg';
 	import { DragRotateAndZoom, defaults as defaultInteractions } from 'ol/interaction.js';
 
@@ -25,7 +26,7 @@
 	onMount(() => {
 		map = new Map({
 			interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
-			target: mapContainer, // 'map' works as well
+			target: mapContainer,
 			layers: [
 				new ImageLayer({
 					source: new Static({
@@ -55,12 +56,10 @@
 <style>
 	#map {
 		/* width: 100vw; */
+		border: 1px solid var(--cds-ui-04);
 		height: 80vh;
 	}
 	:global(.ol-overlaycontainer-stopevent) {
 		width: auto !important;
 	}
-	/* :global(button) {
-		width: 64px !important;
-	} */
 </style>

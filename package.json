@@ -1,5 +1,5 @@
 {
-	"name": "tempribe",
+	"name": "testribe",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -12,9 +12,6 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
-	"prisma": {
-		"seed": "pnpm dlx vite-node prisma/seed.ts"
-	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -26,6 +23,7 @@
 		"eslint-plugin-svelte": "^2.26.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"prisma": "4.13.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
@@ -34,7 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "^4.13.0",
+		"@prisma/client": "4.13.0",
 		"carbon-components-svelte": "^0.73.5",
 		"ol": "^7.3.0"
 	}

@@ -3,6 +3,7 @@ import db from '$lib/database'
 import { json } from "@sveltejs/kit";
 
 export const GET: RequestHandler = async (event) => {
+    console.log("asdf")
     const pages = await db.item.findMany()
     event.setHeaders({
         'Cache-Control': 'public, max-age=0, s-maxage=60'
