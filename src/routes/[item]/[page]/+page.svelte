@@ -5,15 +5,12 @@
 	import { page as htmlPage } from '$app/stores';
 	export let data;
 	import Image from './image.svelte';
-	import { preventDefault } from 'ol/events/Event';
+	// console.log('data', data);
 	const { prev, page, next, item } = data;
-	console.log('prev', prev);
-	let value = page.transcription.length ? page.transcription : '';
+	let value = page.transcription && page.transcription.length ? page.transcription : '';
 	$: samesies = $htmlPage.params.page == page.id;
 	let toast = [false, '', 0];
-	async function submitTransc(event: Event) {
-		event.preventDefault();
-
+	async function submitTransc() {
 		const transcData = { transc: value, itemid: item.id, pageid: page.id };
 		console.log(transcData);
 		await fetch('/api/submit', {
@@ -56,15 +53,13 @@
 		</div>
 	</div>
 	<div class="transbox">
-		<Form on:submit={(e) => submitTransc(e)} class="transform">
-			<TextArea
-				labelText={$pageTitle}
-				placeholder="Type what you see!"
-				bind:value
-				helperText="more descriptive text down here maybe"
-			/>
-			<Button type="submit">Submit</Button>
-		</Form>
+		<TextArea
+			labelText={$pageTitle}
+			placeholder="Type what you see!"
+			bind:value
+			helperText="more descriptive text down here maybe"
+		/>
+		<Button type="submit" on:click={submitTransc}>Submit</Button>
 
 		{#if toast[0]}
 			<div class="toaster">
