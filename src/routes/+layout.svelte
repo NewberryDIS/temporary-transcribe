@@ -1,8 +1,15 @@
 <script>
-	import '../app.css';
-	import { pageTitle } from '../stores';
-	import 'carbon-components-svelte/css/all.css';
-	import { Theme, Content, Grid, Row, Column } from 'carbon-components-svelte';
+	import "../app.css";
+	import "../css/ol.css";
+	import { pageTitle } from "../stores";
+	import "carbon-components-svelte/css/all.css";
+	import {
+		Theme,
+		Content,
+		Grid,
+		Row,
+		Column,
+	} from "carbon-components-svelte";
 </script>
 
 <header>
@@ -22,10 +29,10 @@
 				persist
 				persistKey="__carbon-theme"
 				toggle={{
-					themes: ['g10', 'g80'],
-					labelA: 'Enable dark mode',
-					labelB: 'Disable dark mode',
-					hideLabel: true
+					themes: ["g10", "g80"],
+					labelA: "Enable dark mode",
+					labelB: "Disable dark mode",
+					hideLabel: true,
 				}}
 			/>
 		</div>

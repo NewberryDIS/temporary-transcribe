@@ -1,6 +1,6 @@
-import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from './chunks/index3-9819b4e5.js';
+import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from './chunks/index3-c748cfb5.js';
 import { e as error, j as json, t as text, R as Redirect, H as HttpError, A as ActionFailure } from './chunks/index-36410280.js';
-import { r as readable, w as writable } from './chunks/index2-c5b5abb6.js';
+import { r as readable, w as writable } from './chunks/index2-6d65d64c.js';
 
 let base = "";
 let assets = base;
@@ -130,7 +130,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/newberryn.png" />\n		<!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" /> -->\n		\n		<link rel="stylesheet" href="/node_modules/ol/ol.css">\n		<meta name="viewport" content="width=device-width" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/newberryn.png" />\n		<!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" /> -->\n		\n		<meta name="viewport" content="width=device-width" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -191,7 +191,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "ho8n3l"
+  version_hash: "1f5uum4"
 };
 function get_hooks() {
   return {};
