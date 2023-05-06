@@ -31,14 +31,15 @@ export const GET: RequestHandler = async (event: Event) => {
             itemid: itemid
         }
     })
-    // console.log([prev, page, next])
+
     let item = await db.item.findUnique({
         where: { id: itemid }
     })
-    // console.log(pages)
+
     event.setHeaders({
         'Cache-Control': 'public, max-age=0, s-maxage=60'
     })
+
     const retVal = {
         prev: prev ? prev.pop() : {},
         page: page,
