@@ -1,4 +1,6 @@
 <script>
+	export const prerender = true;
+
 	import "../app.css";
 	import "../css/ol.css";
 	import { pageTitle } from "../stores";

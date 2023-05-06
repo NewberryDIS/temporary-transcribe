@@ -4,16 +4,31 @@ const manifest = {
 	assets: new Set(["favicon.png","newberryn.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.46042237.js","app":"_app/immutable/entry/app.2bc3d317.js","imports":["_app/immutable/entry/start.46042237.js","_app/immutable/chunks/index.c29d431c.js","_app/immutable/chunks/singletons.275ba378.js","_app/immutable/chunks/index.54bd3c82.js","_app/immutable/entry/app.2bc3d317.js","_app/immutable/chunks/index.c29d431c.js"],"stylesheets":[],"fonts":[]},
+		client: {"start":"_app/immutable/entry/start.c7bd9e88.js","app":"_app/immutable/entry/app.e451b147.js","imports":["_app/immutable/entry/start.c7bd9e88.js","_app/immutable/chunks/index.c29d431c.js","_app/immutable/chunks/singletons.1cf66e53.js","_app/immutable/chunks/index.54bd3c82.js","_app/immutable/entry/app.e451b147.js","_app/immutable/chunks/index.c29d431c.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
-			() => import('./chunks/0-cfccc8a3.js'),
-			() => import('./chunks/1-7df1bc66.js'),
-			() => import('./chunks/2-0942a4af.js'),
-			() => import('./chunks/4-7f700aee.js'),
-			() => import('./chunks/5-e40554b7.js'),
-			() => import('./chunks/6-85236b55.js')
+			() => import('./chunks/0-8335bcc8.js'),
+			() => import('./chunks/1-bc6531d2.js'),
+			() => import('./chunks/2-ed320696.js'),
+			() => import('./chunks/3-49315a25.js'),
+			() => import('./chunks/4-08ebc454.js'),
+			() => import('./chunks/5-c60673b1.js'),
+			() => import('./chunks/6-84bd9cd7.js')
 		],
 		routes: [
+			{
+				id: "/",
+				pattern: /^\/$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 3 },
+				endpoint: null
+			},
+			{
+				id: "/api/items",
+				pattern: /^\/api\/items\/?$/,
+				params: [],
+				page: null,
+				endpoint: () => import('./chunks/_server.ts-fa4c90d7.js')
+			},
 			{
 				id: "/api/pages",
 				pattern: /^\/api\/pages\/?$/,
@@ -46,21 +61,21 @@ const manifest = {
 				id: "/test",
 				pattern: /^\/test\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 5 },
+				page: { layouts: [0,], errors: [1,], leaf: 6 },
 				endpoint: null
 			},
 			{
 				id: "/[item]",
 				pattern: /^\/([^/]+?)\/?$/,
 				params: [{"name":"item","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,], errors: [1,,], leaf: 3 },
+				page: { layouts: [0,2,], errors: [1,,], leaf: 4 },
 				endpoint: null
 			},
 			{
 				id: "/[item]/[page]",
 				pattern: /^\/([^/]+?)\/([^/]+?)\/?$/,
 				params: [{"name":"item","optional":false,"rest":false,"chained":false},{"name":"page","optional":false,"rest":false,"chained":false}],
-				page: { layouts: [0,2,], errors: [1,,], leaf: 4 },
+				page: { layouts: [0,2,], errors: [1,,], leaf: 5 },
 				endpoint: null
 			}
 		],
@@ -71,7 +86,7 @@ const manifest = {
 	}
 };
 
-const prerendered = new Set(["/","/api/items"]);
+const prerendered = new Set([]);
 
 export { manifest, prerendered };
 //# sourceMappingURL=manifest.js.map
