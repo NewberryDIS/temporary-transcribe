@@ -11,7 +11,6 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/adapter-vercel').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	runtime: 'nodejs18.x',
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter(),
