@@ -1,40 +1,54 @@
 <script>
-	import { onMount } from 'svelte';
-	import ImageLayer from 'ol/layer/Image.js';
-	import Map from 'ol/Map.js';
-	import Projection from 'ol/proj/Projection.js';
-	import Static from 'ol/source/ImageStatic.js';
-	import View from 'ol/View.js';
-	import { getCenter } from 'ol/extent.js';
-	export let src = '',
-		resolution = 0;
+	import { onMount } from "svelte";
+	import ImageLayer from "ol/layer/Image.js";
+	import Map from "ol/Map.js";
+	import Projection from "ol/proj/Projection.js";
+	import Static from "ol/source/ImageStatic.js";
+	import View from "ol/View.js";
+	import { getCenter } from "ol/extent.js";
+	export let src = "",
+		resolution = [1000, 1000];
 	// let src = 'https://digital.newberry.org/transcribe/omeka/files/original/b5e06514262c595774ed8412b9b8e43e.jpg';
-	import { DragRotateAndZoom, defaults as defaultInteractions } from 'ol/interaction.js';
-
-	const extent = [0, 0, resolution[0], resolution[1]];
-	const projection = new Projection({
-		code: 'Newberry Transcribe Page Image',
-		units: 'pixels',
-		extent: extent
+	import {
+		DragRotateAndZoom,
+		defaults as defaultInteractions,
+	} from "ol/interaction.js";
+	$: console.log(src);
+	let extent = [100, 100, resolution[0], resolution[1]];
+	let projection = new Projection({
+		code: "Newberry Transcribe Page Image",
+		units: "pixels",
+		extent: extent,
 	});
-
-	let map;
-	let mapContainer;
+	let mapContainer, url;
 	let isLoaded = false;
 	$: isLoaded && map.getView().animate({ zoom: zoomLvl, duration: 600 });
 	let zoomLvl = 2;
-	onMount(() => {
-		map = new Map({
-			interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
+
+	let map = null;
+
+	function mapMaker(src, resolution) {
+		map = map ? map.setTarget(null) : null;
+		url = src;
+		extent = [100, 100, resolution[0], resolution[1]];
+		projection = new Projection({
+			code: "Newberry Transcribe Page Image",
+			units: "pixels",
+			extent: extent,
+		});
+		return new Map({
+			interactions: defaultInteractions().extend([
+				new DragRotateAndZoom(),
+			]),
 			target: mapContainer,
 			layers: [
 				new ImageLayer({
 					source: new Static({
-						url: src,
+						url: url,
 						projection: projection,
-						imageExtent: extent
-					})
-				})
+						imageExtent: extent,
+					}),
+				}),
 			],
 
 			view: new View({
@@ -44,11 +58,15 @@
 				// maxResolution: 8
 				zoom: 1,
 				zoomFactor: 1.75,
-				maxZoom: 8
-			})
+				maxZoom: 8,
+			}),
 		});
+	}
+	onMount(() => {
+		map = mapMaker(src, resolution);
 		isLoaded = true;
 	});
+	$: if (map && url !== src) map = mapMaker(src, resolution);
 </script>
 
 <div id="map" bind:this={mapContainer} />

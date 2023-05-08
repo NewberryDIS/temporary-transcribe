@@ -1,21 +1,31 @@
 <script lang="ts">
 	/** @type {import('./$types').PageData} */
-	import { Button, Form, TextArea, ToastNotification } from 'carbon-components-svelte';
-	import { pageTitle } from '../../../stores';
-	import { page as htmlPage } from '$app/stores';
+	import {
+		Button,
+		Form,
+		TextArea,
+		ToastNotification,
+	} from "carbon-components-svelte";
+	import { pageTitle } from "../../../stores";
+	import { page as htmlPage } from "$app/stores";
 	export let data;
-	import Image from './image.svelte';
+	import Image from "./image.svelte";
 	// console.log('data', data);
-	const { prev, page, next, item } = data;
-	let value = page.transcription && page.transcription.length ? page.transcription : '';
-	$: samesies = $htmlPage.params.page == page.id;
-	let toast = [false, '', 0];
+	$: ({ prev, page, next, item } = data);
+
+	$: src = `https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`;
+	$: resolution = [page.resx, page.resy];
+	$: value = "";
+	$: if (page.transcription && value.length === 0) {
+		value = page.transcription;
+	}
+	let toast = [false, "", 0];
 	async function submitTransc() {
 		const transcData = { transc: value, itemid: item.id, pageid: page.id };
 		console.log(transcData);
-		await fetch('/api/submit', {
-			method: 'POST',
-			body: JSON.stringify(transcData)
+		await fetch("/api/submit", {
+			method: "POST",
+			body: JSON.stringify(transcData),
 		})
 			.then((r) => r.json())
 			.then((r) => {
@@ -24,29 +34,32 @@
 			});
 	}
 
-	$pageTitle = 'Transcribing ' + item.title;
+	$: $pageTitle = "Transcribing " + item.title;
 </script>
 
 <div class="trapper">
 	<div class="imgpper">
-		<Image
-			src="https://digital.newberry.org/transcribe/omeka/files/original/{page.omekafn}"
-			resolution={[page.resx, page.resy]}
-		/>
+		<Image {src} {resolution} />
 		<p class="helper">hold Alt + Shift and Drag to Rotate</p>
 		<div class="buttons">
 			<a
-				href={prev ? prev.id : ''}
-				class="buttonifier bx--btn bx--btn-primary {prev ? 'active-button' : 'disabled-button'}"
-				title={prev ? 'Previous page' : "You're on the first page.  No previous page available!"}
+				href={prev ? prev.id : ""}
+				class="buttonifier bx--btn bx--btn-primary {prev
+					? 'active-button'
+					: 'disabled-button'}"
+				title={prev
+					? "Previous page"
+					: "You're on the first page.  No previous page available!"}
 				>Previous</a
 			>
 			<a
-				href={next ? next.id : ''}
+				href={next ? next.id : ""}
 				class="buttonifier bx--btn bx--btn-primary next {next
 					? 'active-button'
 					: 'disabled-button'}"
-				title={next ? 'Next page' : "You're on the last page.  No next page available!"}
+				title={next
+					? "Next page"
+					: "You're on the last page.  No next page available!"}
 			>
 				Next</a
 			>
@@ -64,8 +77,8 @@
 		{#if toast[0]}
 			<div class="toaster">
 				<ToastNotification
-					kind={toast[2] === 200 ? 'success' : 'error'}
-					title={toast[2] === 200 ? 'Success' : 'Error'}
+					kind={toast[2] === 200 ? "success" : "error"}
+					title={toast[2] === 200 ? "Success" : "Error"}
 					subtitle={toast[1]}
 					caption={new Date().toLocaleString()}
 				/>
