@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { pageTitle } from '../stores';
-	import Progressbar from './progressbar.svelte';
-	import { ClickableTile } from 'carbon-components-svelte';
+	import { pageTitle } from "../stores";
+	import Progressbar from "./progressbar.svelte";
+	import { ClickableTile } from "carbon-components-svelte";
 
 	export let data;
 	const items = data.data.sort((a, b) => {
@@ -12,7 +12,7 @@
 			: 1;
 	});
 	// console.log(data);
-	$pageTitle = 'Newberry Transcribe';
+	$pageTitle = "Newberry Transcribe";
 </script>
 
 <div class="grid">
@@ -20,12 +20,22 @@
 		<ClickableTile href="/{item.id}">
 			<div class="tile-liner">
 				<header>
-					<img src={item.image.replace('/original/', '/square_thumbnails/')} alt="" />
+					<img
+						src={item.image
+							.replace("/original/", "/square_thumbnails/")
+							.replace(".jpeg", ".jpg")}
+						alt=""
+					/>
 				</header>
 				<section>
 					<h3 class="title">{item.title}</h3>
 					<p class="pagecount">{item.pagecount} pages.</p>
-					<p class="desc">{item.description}</p>
+					<p class="desc">
+						{item.description !== "null" &&
+						item.description !== null
+							? item.description
+							: ""}
+					</p>
 				</section>
 				<footer>
 					<Progressbar val={item.percentComplete} />
