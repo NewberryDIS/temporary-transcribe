@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Page } from '@prisma/client';
-	import { ClickableTile } from 'carbon-components-svelte';
-	import { page as htmlpage } from '$app/stores';
-	import Progressbar from '../progressbar.svelte';
-	import { pageTitle } from '../../stores';
+	import type { Page } from "@prisma/client";
+	import { ClickableTile } from "carbon-components-svelte";
+	import { page as htmlpage } from "$app/stores";
+	import Progressbar from "../progressbar.svelte";
+	import { pageTitle } from "../../stores";
 	export let data;
 	// console.log('data', data);
 	const { pages } = data;
@@ -15,8 +15,8 @@
 		<ClickableTile href="/{page.itemid}/{page.id}">
 			<header>
 				<img
-					src={'https://digital.newberry.org/transcribe/omeka/files/square_thumbnails/' +
-						page.omekafn}
+					src={"https://digital.newberry.org/transcribe/omeka/files/square_thumbnails/" +
+						page.omekafn.replace("jpeg", "jpg")}
 					alt=""
 				/>
 			</header>
