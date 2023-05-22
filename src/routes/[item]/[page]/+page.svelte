@@ -13,7 +13,6 @@
 	export let data;
 	import Image from "./image.svelte";
 	import { onMount } from "svelte";
-	// console.log('data', data);
 	let isLoaded = false;
 	$: ({ prev, page, next, item } = data);
 
@@ -26,6 +25,7 @@
 	// I have a text input field that gets its initial value from the database; the user can edit the value and submit it
 	let toast = [false, "", 0];
 	async function submitTransc() {
+		console.log("page", page);
 		const transcData = {
 			transc: page.transcription,
 			itemid: item.id,
@@ -85,7 +85,6 @@
 			labelText={$pageTitle}
 			placeholder="Type what you see!"
 			bind:value={page.transcription}
-			helperText="more descriptive text down here maybe"
 		/>
 		<Button type="submit" on:click={submitTransc}>Submit</Button>
 

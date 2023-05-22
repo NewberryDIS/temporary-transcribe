@@ -1,5 +1,4 @@
 <script>
-
 	import "../app.css";
 	import "../css/ol.css";
 	import { pageTitle } from "../stores";
@@ -15,15 +14,10 @@
 
 <header>
 	<nav>
-		<h2>{$pageTitle}</h2>
-		<ul>
-			<li>
-				<a href="/">Home</a>
-			</li>
-			<li>
-				<a href="/else">Something Else</a>
-			</li>
-		</ul>
+		<h2>
+			<a href="/" class="nolines"><img src="/newberryn.png" alt="" /></a>
+			{$pageTitle}
+		</h2>
 		<div class="selecter">
 			<Theme
 				render="toggle"
@@ -52,6 +46,9 @@
 <style>
 	h2 {
 		margin: 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
 	}
 	header {
 		position: sticky;
@@ -67,5 +64,10 @@
 	}
 	.selecter {
 		width: 200px;
+	}
+	.nolines,
+	.nolines img {
+		height: 48px;
+		padding-inline: 8px;
 	}
 </style>
