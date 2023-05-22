@@ -1,6 +1,18 @@
 body {
     --colorOne: rgb(205,184,209);
     --colorTwo: rgba(173,43,90,1);
-    --colorThree: #4051A3;
+    --colorThree: rgb(64, 81, 163);
     --colorFour: #111A2A;
+    --colorButton: 64, 81, 163;
 }
+button.bx--btn--primary, .active-button {
+    transition: 0.2s;
+    color: var(--cds-text-04);
+    background-color: rgba(var(--colorButton), 1);
+}
+button.bx--btn--primary:hover, .active-button:hover  {
+
+background-color: rgba(var(--colorButton), 0.3) !important;
+color: var(--colorFour);
+}
+

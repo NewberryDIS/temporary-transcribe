@@ -1,0 +1,401 @@
+[{
+        "id": 1648,
+        "url": "https:\/\/transcribe.newberry.org\/api\/items\/1648",
+        "public": true,
+        "featured": false,
+        "added": "2023-04-25T20:35:11+00:00",
+        "modified": "2023-05-02T14:40:32+00:00",
+        "item_type": null,
+        "collection": null,
+        "owner": {
+            "id": 1,
+            "url": "https:\/\/transcribe.newberry.org\/api\/users\/1",
+            "resource": "users"
+        },
+        "files": {
+            "count": 50,
+            "url": "https:\/\/transcribe.newberry.org\/api\/files?item=1648",
+            "resource": "files"
+        },
+        "tags": [],
+        "element_texts": [{
+            "html": false,
+            "text": "Graham Taylor letters [Chicago Commons correspondence], 1942-1972",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 50,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/50",
+                "name": "Title",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "Ordained minister and social economics professor who founded the Chicago Commons social settlement and the Chicago School of Civics and Philanthropy.",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 41,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/41",
+                "name": "Description",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/archives.newberry.org\/repositories\/2\/resources\/266",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 46,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/46",
+                "name": "Relation",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/transcribe.newberry.org\/files\/original\/e968213e548256c0f45a45d1577c0714.jpg",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 48,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/48",
+                "name": "Source",
+                "resource": "elements"
+            }
+        }],
+        "extended_resources": []
+    },
+    {
+        "id": 1649,
+        "url": "https:\/\/transcribe.newberry.org\/api\/items\/1649",
+        "public": true,
+        "featured": false,
+        "added": "2023-05-02T14:38:07+00:00",
+        "modified": "2023-05-22T15:42:34+00:00",
+        "item_type": null,
+        "collection": null,
+        "owner": {
+            "id": 1,
+            "url": "https:\/\/transcribe.newberry.org\/api\/users\/1",
+            "resource": "users"
+        },
+        "files": {
+            "count": 79,
+            "url": "https:\/\/transcribe.newberry.org\/api\/files?item=1649",
+            "resource": "files"
+        },
+        "tags": [],
+        "element_texts": [{
+            "html": false,
+            "text": "Agenda de bufete o libro de memoria diario para 1884 con noticias y guia de Madrid",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 50,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/50",
+                "name": "Title",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "Entries made by Jos\u00e9 Rizal as a twenty-three year-old student of art and medicine in Madrid.",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 41,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/41",
+                "name": "Description",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/i-share-nby.primo.exlibrisgroup.com\/discovery\/fulldisplay?context=L&vid=01CARLI_NBY:CARLI_NBY&search_scope=MyInstitution&tab=LibraryCatalog&docid=alma991328568805867",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 46,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/46",
+                "name": "Relation",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/transcribe.newberry.org\/files\/original\/5fb64349f5baf0b35e650854261406e8.jpg",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 48,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/48",
+                "name": "Source",
+                "resource": "elements"
+            }
+        }],
+        "extended_resources": []
+    },
+    {
+        "id": 1651,
+        "url": "https:\/\/transcribe.newberry.org\/api\/items\/1651",
+        "public": true,
+        "featured": false,
+        "added": "2023-05-10T21:36:25+00:00",
+        "modified": "2023-05-22T15:42:28+00:00",
+        "item_type": null,
+        "collection": null,
+        "owner": {
+            "id": 1,
+            "url": "https:\/\/transcribe.newberry.org\/api\/users\/1",
+            "resource": "users"
+        },
+        "files": {
+            "count": 33,
+            "url": "https:\/\/transcribe.newberry.org\/api\/files?item=1651",
+            "resource": "files"
+        },
+        "tags": [],
+        "element_texts": [{
+            "html": false,
+            "text": "W. S. Drummond diary [excerpts], 1830",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 50,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/50",
+                "name": "Title",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/archives.newberry.org\/repositories\/2\/resources\/33",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 46,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/46",
+                "name": "Relation",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/transcribe.newberry.org\/files\/original\/4bd6d8ff809f8822f65484fa33c7a919.jpg",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 48,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/48",
+                "name": "Source",
+                "resource": "elements"
+            }
+        }],
+        "extended_resources": []
+    },
+    {
+        "id": 1652,
+        "url": "https:\/\/transcribe.newberry.org\/api\/items\/1652",
+        "public": true,
+        "featured": false,
+        "added": "2023-05-10T21:41:51+00:00",
+        "modified": "2023-05-22T15:42:20+00:00",
+        "item_type": null,
+        "collection": null,
+        "owner": {
+            "id": 1,
+            "url": "https:\/\/transcribe.newberry.org\/api\/users\/1",
+            "resource": "users"
+        },
+        "files": {
+            "count": 167,
+            "url": "https:\/\/transcribe.newberry.org\/api\/files?item=1652",
+            "resource": "files"
+        },
+        "tags": [],
+        "element_texts": [{
+            "html": false,
+            "text": "Fanny Butcher letters, 1897-1984 [Cather, Willa to Eberhart, Mignon]",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 50,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/50",
+                "name": "Title",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "Author and longtime Literary Editor of the Chicago Tribune.",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 41,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/41",
+                "name": "Description",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/archives.newberry.org\/repositories\/2\/resources\/33",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 46,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/46",
+                "name": "Relation",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/transcribe.newberry.org\/files\/original\/c69542659b6d8f8e576f6e9f5025747e.jpg",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 48,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/48",
+                "name": "Source",
+                "resource": "elements"
+            }
+        }],
+        "extended_resources": []
+    },
+    {
+        "id": 1653,
+        "url": "https:\/\/transcribe.newberry.org\/api\/items\/1653",
+        "public": true,
+        "featured": false,
+        "added": "2023-05-22T14:54:44+00:00",
+        "modified": "2023-05-22T15:42:13+00:00",
+        "item_type": null,
+        "collection": null,
+        "owner": {
+            "id": 1,
+            "url": "https:\/\/transcribe.newberry.org\/api\/users\/1",
+            "resource": "users"
+        },
+        "files": {
+            "count": 9,
+            "url": "https:\/\/transcribe.newberry.org\/api\/files?item=1653",
+            "resource": "files"
+        },
+        "tags": [],
+        "element_texts": [{
+            "html": false,
+            "text": "Arts Club records [French excerpts], 1917-1934",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 50,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/50",
+                "name": "Title",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "Incorporated in 1916, with a mission \"to encourage higher standards of art, maintain galleries for that purpose; and to promote the mutual acquaintance of art lovers and art workers.\"",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 41,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/41",
+                "name": "Description",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/archives.newberry.org\/repositories\/2\/resources\/954",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 46,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/46",
+                "name": "Relation",
+                "resource": "elements"
+            }
+        }, {
+            "html": false,
+            "text": "https:\/\/transcribe.newberry.org\/files\/original\/7bcaf7c3f0c603fb57100edfea3c2d6e.jpeg",
+            "element_set": {
+                "id": 1,
+                "url": "https:\/\/transcribe.newberry.org\/api\/element_sets\/1",
+                "name": "Dublin Core",
+                "resource": "element_sets"
+            },
+            "element": {
+                "id": 48,
+                "url": "https:\/\/transcribe.newberry.org\/api\/elements\/48",
+                "name": "Source",
+                "resource": "elements"
+            }
+        }],
+        "extended_resources": []
+    }
+]

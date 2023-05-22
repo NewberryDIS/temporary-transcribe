@@ -1,8 +1,10 @@
 <script lang="ts">
 	/** @type {import('./$types').PageData} */
+	import { beforeNavigate } from "$app/navigation";
 	import {
 		Button,
 		Form,
+		Loading,
 		TextArea,
 		ToastNotification,
 	} from "carbon-components-svelte";
@@ -10,18 +12,25 @@
 	import { page as htmlPage } from "$app/stores";
 	export let data;
 	import Image from "./image.svelte";
+	import { onMount } from "svelte";
 	// console.log('data', data);
+	let isLoaded = false;
 	$: ({ prev, page, next, item } = data);
 
 	$: src = `https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`;
 	$: resolution = [page.resx, page.resy];
-	$: value = "";
-	$: if (page.transcription && value.length === 0) {
-		value = page.transcription;
-	}
+	let value;
+	// $: if (page.transcription && value.length === 0) {
+	// 	value = page.transcription;
+	// }
+	// I have a text input field that gets its initial value from the database; the user can edit the value and submit it
 	let toast = [false, "", 0];
 	async function submitTransc() {
-		const transcData = { transc: value, itemid: item.id, pageid: page.id };
+		const transcData = {
+			transc: page.transcription,
+			itemid: item.id,
+			pageid: page.id,
+		};
 		console.log(transcData);
 		await fetch("/api/submit", {
 			method: "POST",
@@ -34,12 +43,18 @@
 			});
 	}
 
+	beforeNavigate(() => {
+		isLoaded = false;
+	});
 	$: $pageTitle = "Transcribing " + item.title;
 </script>
 
+{#if !isLoaded}
+	<Loading />
+{/if}
 <div class="trapper">
 	<div class="imgpper">
-		<Image {src} {resolution} />
+		<Image {src} {resolution} bind:isLoaded />
 		<p class="helper">hold Alt + Shift and Drag to Rotate</p>
 		<div class="buttons">
 			<a
@@ -69,7 +84,7 @@
 		<TextArea
 			labelText={$pageTitle}
 			placeholder="Type what you see!"
-			bind:value
+			bind:value={page.transcription}
 			helperText="more descriptive text down here maybe"
 		/>
 		<Button type="submit" on:click={submitTransc}>Submit</Button>
@@ -88,6 +103,11 @@
 </div>
 
 <style>
+	.prevnext-preload {
+		width: 1px;
+		height: 1px;
+		opacity: 0.01;
+	}
 	.toaster {
 		position: absolute;
 		bottom: 32px;
@@ -109,14 +129,7 @@
 	.buttonifier.next {
 		text-align: right;
 	}
-	.active-button:hover {
-		color: var(--cds-text-04);
-		background-color: var(--cds-hover-primary);
-	}
-	.active-button {
-		color: var(--cds-text-04);
-		background-color: var(--cds-interactive-01);
-	}
+	/* active button + hover are in app.css */
 	.disabled-button {
 		background: var(--cds-disabled-02);
 		border-color: var(--cds-disabled-02);
