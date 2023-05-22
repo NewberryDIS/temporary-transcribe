@@ -55,6 +55,13 @@
 		top: 0;
 		background-color: var(--cds-ui-background);
 		z-index: 9000;
+		background: linear-gradient(
+			150deg,
+			var(--cds-ui-background) 0vw,
+			var(--distance),
+			var(--cds-ui-03) var(--distance) 100vw
+		);
+		background-attachment: fixed !important;
 	}
 	nav {
 		padding: 8px;

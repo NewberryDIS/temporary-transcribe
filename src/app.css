@@ -1,9 +1,20 @@
 body {
+    --angleDegs: 210deg;
+    --distance: 40vw;
+    --slashy-background: transparent;
     --colorOne: rgb(205,184,209);
     --colorTwo: rgba(173,43,90,1);
     --colorThree: rgb(64, 81, 163);
     --colorFour: #111A2A;
     --colorButton: 64, 81, 163;
+    background: linear-gradient(
+      var(--angleDegs),
+      var(--cds-ui-background) 0vw,
+      var(--distance),
+      var(--cds-ui-03) var(--distance) 100vw
+    );
+    background-attachment: fixed !important;
+
 }
 button.bx--btn--primary, .active-button {
     transition: 0.2s;
@@ -16,3 +27,12 @@ background-color: rgba(var(--colorButton), 0.3) !important;
 color: var(--colorFour);
 }
 
+.slashy {
+    background: linear-gradient(
+      var(--angleDegs),
+      var(--surface-1) 0vw,
+      var(--distance),
+      var(--surface-2) var(--distance) 100vw
+    );
+    background-attachment: fixed !important;
+  }
