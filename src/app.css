@@ -16,12 +16,12 @@ body {
     background-attachment: fixed !important;
 
 }
-button.bx--btn--primary, .active-button {
+button.bx--btn--primary,a.bx--btn--primary, .active-button {
     transition: 0.2s;
     color: var(--cds-text-04);
     background-color: rgba(var(--colorButton), 1);
 }
-button.bx--btn--primary:hover, .active-button:hover  {
+button.bx--btn--primary:hover, a.bx--btn--primary:hover, .active-button:hover  {
 
 background-color: rgba(var(--colorButton), 0.3) !important;
 color: var(--colorFour);

@@ -7,6 +7,9 @@
 		Loading,
 		TextArea,
 		ToastNotification,
+		Tabs,
+		Tab,
+		TabContent,
 	} from "carbon-components-svelte";
 	import { pageTitle } from "../../../stores";
 	import { page as htmlPage } from "$app/stores";
@@ -14,10 +17,11 @@
 	import Image from "./image.svelte";
 	import { onMount } from "svelte";
 	let isLoaded = false;
-	$: ({ prev, page, next, item } = data);
+	$: ({ prev, page, next, item, transtore } = data);
 
 	$: src = `https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`;
 	$: resolution = [page.resx, page.resy];
+	$: console.log(data);
 	let value;
 	console.log(item);
 	let toast = [false, "", 0];
@@ -25,6 +29,7 @@
 		console.log("page", page);
 		const transcData = {
 			transc: page.transcription,
+			transl: page.translation,
 			itemid: item.id,
 			pageid: page.id,
 		};
@@ -48,6 +53,7 @@
 		"Transcribing " + item.title,
 		item.catalogLink,
 	];
+	var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
 </script>
 
 {#if !isLoaded}
@@ -56,7 +62,15 @@
 <div class="trapper">
 	<div class="imgpper">
 		<Image {src} {resolution} bind:isLoaded />
-		<p class="helper">To rotate image: hold Alt + Shift and drag</p>
+		<p class="helper">
+			To rotate image: hold
+			{#if isMac}
+				Opt
+			{:else}
+				Alt
+			{/if}
+			+ Shift and drag
+		</p>
 		<div class="buttons">
 			<a
 				href={prev ? prev.id : ""}
@@ -82,11 +96,41 @@
 		</div>
 	</div>
 	<div class="transbox">
-		<TextArea
-			placeholder="Type what you see!"
-			bind:value={page.transcription}
-		/>
-		<Button type="submit" on:click={submitTransc}>Submit</Button>
+		<Tabs>
+			<Tab label="Transcription" />
+			<Tab label="Translation" />
+			<svelte:fragment slot="content">
+				<TabContent>
+					<TextArea
+						placeholder="Type what you see!"
+						bind:value={page.transcription}
+					/>
+				</TabContent>
+				<TabContent>
+					<TextArea
+						placeholder="Translate!"
+						bind:value={page.translation}
+					/>
+				</TabContent>
+			</svelte:fragment>
+		</Tabs>
+		<Button
+			type="submit"
+			disabled={page.transcription === transtore[0] &&
+				page.translation === transtore[1]}
+			on:click={submitTransc}
+		>
+			Submit
+			{#if page.transcription !== transtore[0]}
+				Transcription
+			{/if}
+			{#if page.transcription !== transtore[0] && page.translation !== transtore[1]}
+				&
+			{/if}
+			{#if page.translation !== transtore[1]}
+				Translation
+			{/if}
+		</Button>
 
 		{#if toast[0]}
 			<div class="toaster">
@@ -144,16 +188,22 @@
 	.imgpper,
 	.transbox {
 		margin: 32px;
-		flex: 1;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		/* position: relative; */
 	}
+	.imgpper {
+		flex: 2;
+	}
+	.transbox {
+		flex: 1;
+	}
 	.transbox {
 		justify-content: flex-start;
 		/* align-items: flex-start; */
 		align-items: stretch;
+		height: 75vh;
 	}
 	:global(.transform button) {
 		float: right;
@@ -165,7 +215,7 @@
 		margin: 16px;
 	}
 	:global(.transbox .bx--form-item, .transbox .bx--text-area__wrapper) {
-		height: 75vh;
+		height: 100%;
 		margin: 0;
 	}
 	/* border: 1px solid var(--cds-ui-04); */
@@ -180,8 +230,13 @@
 	}
 	:global(.transbox .bx--form-item) {
 		display: block;
-		height: 75vh;
-		margin-bottom: 24px;
+		height: 100%;
 		/* margin-bottom: 8px; */
+	}
+
+	:global(.bx--tab-content) {
+		margin-bottom: 24px;
+		padding: 0 !important;
+		height: 100%;
 	}
 </style>

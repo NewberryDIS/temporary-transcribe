@@ -4,11 +4,12 @@ import { json } from "@sveltejs/kit";
 
 export async function POST({request}) {
 //   const { data } = request.body;
-let {transc, itemid, pageid} = await request.json()
+let {transc, transl, itemid, pageid} = await request.json()
   try {
     await db.page.update({
       data: {
         transcription: transc,
+        translation: transl,
       },
       where: {
             id: pageid

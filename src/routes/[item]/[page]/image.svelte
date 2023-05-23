@@ -71,7 +71,9 @@
 <div id="map" bind:this={mapContainer}>
 	<div class="looder">
 		<p>
-			<Loading withOverlay={false} />
+			{#if !isLoaded}
+				<Loading withOverlay={false} />
+			{/if}
 		</p>
 	</div>
 </div>

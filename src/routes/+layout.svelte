@@ -1,6 +1,7 @@
 <script>
 	import "../app.css";
 	import "../css/ol.css";
+	import { page } from "$app/stores";
 	import { pageTitle } from "../stores";
 	import "carbon-components-svelte/css/all.css";
 	import {
@@ -30,10 +31,12 @@
 				<a href={$pageTitle[0]} class="lines">{$pageTitle[1]}</a>
 			</h2>
 		</div>
-		<div class="right">
-			<Button href={$pageTitle[2]} target="_blank" kind="secondary">
-				More Information
-			</Button>
+		<div class="right {$page.url.pathname !== '/' ? 'friendly' : 'solo'}">
+			{#if $page.url.pathname !== "/"}
+				<Button href={$pageTitle[2]} target="_blank" kind="primary">
+					More Information
+				</Button>
+			{/if}
 			<Button
 				kind="ghost"
 				iconDescription="Toggle {theme === 'g10'
@@ -74,6 +77,7 @@
 			var(--cds-ui-03) var(--distance) 100vw
 		);
 		background-attachment: fixed !important;
+		overflow: hidden;
 	}
 	nav {
 		padding: 8px;
@@ -96,7 +100,13 @@
 	.right {
 		flex-basis: 300px;
 		width: 300px;
+	}
+	.friendly {
 		justify-content: space-between;
+	}
+	.solo {
+		justify-content: flex-end;
+		/* padding-right: 32px; */
 	}
 	.nolines,
 	.nolines img {

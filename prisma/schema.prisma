@@ -22,10 +22,11 @@ model Item {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model Page {
-  id            Int     @id
+  id            Int     @id(map: "File_pkey")
   itemid        Int?
   omekafn       String?
   resx          Int?
   resy          Int?
   transcription String? @default("")
+  translation   String?
 }
