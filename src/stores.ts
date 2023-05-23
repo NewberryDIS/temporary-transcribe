@@ -1,3 +1,3 @@
 import { writable } from "svelte/store";
 
-export const pageTitle = writable('Transcribe')
+export const pageTitle = writable(['/', 'Transcribe'])

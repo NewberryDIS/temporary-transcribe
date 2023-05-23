@@ -36,3 +36,24 @@ color: var(--colorFour);
     );
     background-attachment: fixed !important;
   }
+
+
+.lines {
+    color: inherit !important;
+    text-decoration: none;
+    background: linear-gradient(
+       to right,
+       rgba(37, 37, 37, 0.3),
+       rgba(37, 37, 37, 0.3)
+    ),
+    linear-gradient(to right, rgba(37, 37, 37, 1), rgba(37, 37, 37, 1));
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+
+    &:hover,
+    &:focus {
+        background-size: 0 0.1em, 100% 0.1em;
+    }
+}

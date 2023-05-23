@@ -10,6 +10,9 @@ dependencies:
   carbon-components-svelte:
     specifier: ^0.73.5
     version: 0.73.5
+  carbon-icons-svelte:
+    specifier: ^11.4.0
+    version: 11.4.0
   mdsvex:
     specifier: ^0.10.6
     version: 0.10.6(svelte@3.59.0)
@@ -902,6 +905,10 @@ packages:
     resolution: {integrity: sha512-emHxfMurN6ZiBCnPB6VErw/uKoXCuTBB70Q/woj+9DhTtKoGT1ejBZ75DUxXoDP/n7ZEGJ/y1dmqQ8xM3TJ8Hg==}
     dependencies:
       flatpickr: 4.6.9
+    dev: false
+
+  /carbon-icons-svelte@11.4.0:
+    resolution: {integrity: sha512-p/llZde2kP2BI9SOqM+QFKGfQnYrW+4dVxF1rAYriEADXDsjt9EYlh+KpQ5qf4JpXAq+e2+TB/r/lIG1xdUbAQ==}
     dev: false
 
   /chalk@4.1.2:

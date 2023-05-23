@@ -7,7 +7,7 @@
 	export let data;
 	// console.log('data', data);
 	const { pages } = data;
-	$pageTitle = data.item.title;
+	$pageTitle = [data.item.catalogLink, data.item.title];
 </script>
 
 <div class="grid">

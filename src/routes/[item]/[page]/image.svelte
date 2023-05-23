@@ -94,7 +94,7 @@
 	#map {
 		/* width: 100vw; */
 		border: 1px solid var(--cds-ui-04);
-		height: 80vh;
+		height: 75vh;
 		position: relative;
 	}
 	:global(.ol-overlaycontainer-stopevent) {

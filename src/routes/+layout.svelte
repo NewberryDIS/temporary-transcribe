@@ -9,26 +9,33 @@
 		Grid,
 		Row,
 		Column,
+		Button,
 	} from "carbon-components-svelte";
+	import Moon from "carbon-icons-svelte/lib/Moon.svelte";
+	import Sun from "carbon-icons-svelte/lib/Sun.svelte";
+	let theme = "g10";
+	function themeToggle() {
+		console.log(theme);
+		if (theme === "g10") theme = "g90";
+		else theme = "g10";
+	}
 </script>
 
+<Theme bind:theme persist persistKey="__carbon-theme" />
 <header>
 	<nav>
 		<h2>
 			<a href="/" class="nolines"><img src="/newberryn.png" alt="" /></a>
-			{$pageTitle}
+			<a href={$pageTitle[0]} class="lines">{$pageTitle[1]}</a>
 		</h2>
 		<div class="selecter">
-			<Theme
-				render="toggle"
-				persist
-				persistKey="__carbon-theme"
-				toggle={{
-					themes: ["g10", "g80"],
-					labelA: "Enable dark mode",
-					labelB: "Disable dark mode",
-					hideLabel: true,
-				}}
+			<Button
+				kind="ghost"
+				iconDescription="Toggle {theme === 'g10'
+					? 'dark'
+					: 'light'} mode"
+				icon={theme === "g10" ? Moon : Sun}
+				on:click={themeToggle}
 			/>
 		</div>
 	</nav>

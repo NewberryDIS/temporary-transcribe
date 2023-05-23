@@ -46,7 +46,7 @@
 	beforeNavigate(() => {
 		isLoaded = false;
 	});
-	$: $pageTitle = "Transcribing " + item.title;
+	$: $pageTitle = [item.catalogLink, "Transcribing " + item.title];
 </script>
 
 {#if !isLoaded}
@@ -55,7 +55,7 @@
 <div class="trapper">
 	<div class="imgpper">
 		<Image {src} {resolution} bind:isLoaded />
-		<p class="helper">hold Alt + Shift and Drag to Rotate</p>
+		<p class="helper">To rotate image: hold Alt + Shift and drag</p>
 		<div class="buttons">
 			<a
 				href={prev ? prev.id : ""}
@@ -82,7 +82,6 @@
 	</div>
 	<div class="transbox">
 		<TextArea
-			labelText={$pageTitle}
 			placeholder="Type what you see!"
 			bind:value={page.transcription}
 		/>
@@ -137,7 +136,7 @@
 	}
 	.trapper {
 		display: flex;
-		height: 85vh;
+		/* height: 85vh; */
 		justify-content: center;
 		align-items: stretch;
 	}
@@ -151,7 +150,8 @@
 		/* position: relative; */
 	}
 	.transbox {
-		justify-content: center;
+		justify-content: flex-start;
+		/* align-items: flex-start; */
 		align-items: stretch;
 	}
 	:global(.transform button) {
@@ -163,10 +163,11 @@
 	:global(.transform > *) {
 		margin: 16px;
 	}
-	:global(.bx--form-item, .bx--text-area__wrapper) {
-		flex: 1;
-		height: 80%;
+	:global(.transbox .bx--form-item, .transbox .bx--text-area__wrapper) {
+		height: 75vh;
+		margin: 0;
 	}
+	/* border: 1px solid var(--cds-ui-04); */
 
 	.imgpper {
 		width: 100%;
@@ -175,5 +176,11 @@
 		color: var(--cds-text-02);
 		font-size: var(--cds-label-01-font-size);
 		text-align: center;
+	}
+	:global(.transbox .bx--form-item) {
+		display: block;
+		height: 75vh;
+		margin-bottom: 24px;
+		/* margin-bottom: 8px; */
 	}
 </style>

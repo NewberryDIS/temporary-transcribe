@@ -12,7 +12,7 @@
 			: 1;
 	});
 	// console.log(data);
-	$pageTitle = "Newberry Transcribe";
+	$pageTitle = ["/", "Newberry Transcribe"];
 </script>
 
 <div class="grid">

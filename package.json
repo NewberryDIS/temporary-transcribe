@@ -36,6 +36,7 @@
 		"@prisma/client": "4.13.0",
 		"@sveltejs/adapter-node": "^1.2.4",
 		"carbon-components-svelte": "^0.73.5",
+		"carbon-icons-svelte": "^11.4.0",
 		"mdsvex": "^0.10.6",
 		"ol": "^7.3.0"
 	}
