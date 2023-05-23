@@ -21,9 +21,7 @@
 			<div class="tile-liner">
 				<header>
 					<img
-						src={item.image
-							.replace("/original/", "/square_thumbnails/")
-							.replace(".jpeg", ".jpg")}
+						src="https://transcribe.newberry.org/files/tempthumbs/{item.id}.jpeg"
 						alt=""
 					/>
 				</header>
