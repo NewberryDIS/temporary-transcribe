@@ -21,9 +21,9 @@
 
 	$: src = `https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`;
 	$: resolution = [page.resx, page.resy];
-	$: console.log(data);
+	// $: console.log(data);
 	let value;
-	console.log(item);
+	// console.log(item);
 	let toast = [false, "", 0];
 	async function submitTransc() {
 		console.log("page", page);
