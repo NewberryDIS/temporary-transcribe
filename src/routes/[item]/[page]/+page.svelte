@@ -19,10 +19,7 @@
 	$: src = `https://digital.newberry.org/transcribe/omeka/files/original/${page.omekafn}`;
 	$: resolution = [page.resx, page.resy];
 	let value;
-	// $: if (page.transcription && value.length === 0) {
-	// 	value = page.transcription;
-	// }
-	// I have a text input field that gets its initial value from the database; the user can edit the value and submit it
+	console.log(item);
 	let toast = [false, "", 0];
 	async function submitTransc() {
 		console.log("page", page);
@@ -46,7 +43,11 @@
 	beforeNavigate(() => {
 		isLoaded = false;
 	});
-	$: $pageTitle = [item.catalogLink, "Transcribing " + item.title];
+	$: $pageTitle = [
+		"/" + item.id,
+		"Transcribing " + item.title,
+		item.catalogLink,
+	];
 </script>
 
 {#if !isLoaded}

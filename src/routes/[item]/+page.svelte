@@ -5,9 +5,13 @@
 	import Progressbar from "../progressbar.svelte";
 	import { pageTitle } from "../../stores";
 	export let data;
-	// console.log('data', data);
-	const { pages } = data;
-	$pageTitle = [data.item.catalogLink, data.item.title];
+	console.log("data", data);
+	$: ({ pages, item } = data);
+	$: $pageTitle = [
+		"/" + item.id,
+		"Transcribing " + item.title,
+		item.catalogLink,
+	];
 </script>
 
 <div class="grid">

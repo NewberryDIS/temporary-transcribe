@@ -24,11 +24,16 @@
 <Theme bind:theme persist persistKey="__carbon-theme" />
 <header>
 	<nav>
-		<h2>
+		<div class="left">
 			<a href="/" class="nolines"><img src="/newberryn.png" alt="" /></a>
-			<a href={$pageTitle[0]} class="lines">{$pageTitle[1]}</a>
-		</h2>
-		<div class="selecter">
+			<h2>
+				<a href={$pageTitle[0]} class="lines">{$pageTitle[1]}</a>
+			</h2>
+		</div>
+		<div class="right">
+			<Button href={$pageTitle[2]} target="_blank" kind="secondary">
+				More Information
+			</Button>
 			<Button
 				kind="ghost"
 				iconDescription="Toggle {theme === 'g10'
@@ -76,12 +81,32 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-	.selecter {
-		width: 200px;
+	.left {
+		flex: 1;
+		justify-content: flex-start;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.left,
+	.right {
+		align-items: center;
+		display: flex;
+	}
+	.right {
+		flex-basis: 300px;
+		width: 300px;
+		justify-content: space-between;
 	}
 	.nolines,
 	.nolines img {
 		height: 48px;
 		padding-inline: 8px;
+	}
+	.left h2,
+	.left h2 a {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>
