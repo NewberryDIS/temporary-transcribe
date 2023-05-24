@@ -55,8 +55,6 @@
 		item.catalogLink,
 	];
 
-    //     isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-    // }
 </script>
 
 {#if !isLoaded}
