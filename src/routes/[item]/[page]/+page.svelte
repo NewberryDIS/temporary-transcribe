@@ -1,6 +1,7 @@
 <script lang="ts">
 	/** @type {import('./$types').PageData} */
 	import { beforeNavigate } from "$app/navigation";
+    import { browser } from '$app/environment'
 	import {
 		Button,
 		Form,
@@ -53,7 +54,10 @@
 		"Transcribing " + item.title,
 		item.catalogLink,
 	];
-	var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    let isMac
+    if (browser){
+        isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    }
 </script>
 
 {#if !isLoaded}
