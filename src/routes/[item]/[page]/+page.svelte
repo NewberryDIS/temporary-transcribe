@@ -54,10 +54,9 @@
 		"Transcribing " + item.title,
 		item.catalogLink,
 	];
-    let isMac
-    if (browser){
-        isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-    }
+
+    //     isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+    // }
 </script>
 
 {#if !isLoaded}
@@ -67,13 +66,7 @@
 	<div class="imgpper">
 		<Image {src} {resolution} bind:isLoaded />
 		<p class="helper">
-			To rotate image: hold
-			{#if isMac}
-				Opt
-			{:else}
-				Alt
-			{/if}
-			+ Shift and drag
+			To rotate image: hold Alt + Shift and drag
 		</p>
 		<div class="buttons">
 			<a
