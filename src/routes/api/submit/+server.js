@@ -4,8 +4,8 @@ import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
 	//   const { data } = request.body;
-	console.log('request', request);
-	console.log('request.json', request.json());
+	// console.log('request', request);
+	// console.log('request.json', request.json());
 	let { transc, transl, itemid, pageid } = await request.json();
 	try {
 		await db.page.update({

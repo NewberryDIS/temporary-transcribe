@@ -5,9 +5,9 @@ import { json } from '@sveltejs/kit';
 export const GET: RequestHandler = async (event: Event) => {
 	const pageid = parseInt(event.url.searchParams.get('pageid'));
 	const itemid = parseInt(event.url.searchParams.get('itemid'));
-	console.log('itemid', itemid);
-	console.log('pageid', pageid);
-	console.log('event', event);
+	// console.log('itemid', itemid);
+	// console.log('pageid', pageid);
+	// console.log('event', event);
 	const page = await db.page.findUnique({
 		where: {
 			id: pageid

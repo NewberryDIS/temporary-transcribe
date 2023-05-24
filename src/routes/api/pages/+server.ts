@@ -3,10 +3,10 @@ import db from '$lib/database';
 import { json } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async (event) => {
-	console.log('event', event);
-	console.log('event.url.searchParams.get(itemid)', event.url.searchParams.get(itemid));
+	// console.log('event', event);
+	// console.log('event.url.searchParams.get(itemid)', event.url.searchParams.get(itemid));
 	const itemid = event.url.searchParams.get('itemid');
-	console.log(itemid);
+	// console.log(itemid);
 	const pages = await db.page.findMany({
 		where: { itemid: parseInt(itemid) }
 	});
